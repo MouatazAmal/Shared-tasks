@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/todoslists"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Show Item</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="ion-text-center" color="secondary">"{{item.title}}"</ion-card-title>
+    </ion-card-header>
+    <ion-card-content size="large">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-text class="ion-text-center" color="dark">
+              {{item.detail}}
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="ion-text-right">
+            <ion-text color="primary">
+              <b>Status</b>
+            </ion-text>
+          </ion-col>
+          <ion-col class="ion-text-left">
+            <ion-icon *ngIf="item.isDone" style="zoom:2.0;" color="success" name="checkmark"></ion-icon>
+            <ion-icon *ngIf="!item.isDone" style="zoom:2.0;" color="warning" name="timer"></ion-icon>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="ion-text-center">
+            <ion-button [routerLink]="['/', 'todoslists', item.idl, 'edititem', item.id]"
+              [disabled]="!isWriteAutorisation">
+              <ion-icon slot="icon-only" name="create"></ion-icon>
+            </ion-button>
+            <ion-button (click)="onDelete()" color="danger" [disabled]="!isWriteAutorisation">
+              <ion-icon slot="icon-only" name="trash"></ion-icon>
+            </ion-button>
+            <ion-button (click)="onReminder()" color="secondary">
+              <ion-icon slot="icon-only" name="alarm"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

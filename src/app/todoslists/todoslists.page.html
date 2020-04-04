@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="mymainmenu" ion-menu-toggle></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="onAdd()">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      TodosLists
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-item button *ngFor="let todoslist of todosLists" [routerLink]="['./', todoslist.id]">
+      <ion-label color="tertiary" class="ion-margin">
+        <h2>{{ todoslist.name | titlecase }}</h2>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

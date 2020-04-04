@@ -1,0 +1,120 @@
+{
+  "name": "M2PGI-TODO-LIST",
+  "version": "0.0.1",
+  "author": "Ionic Framework",
+  "homepage": "https://ionicframework.com/",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/common": "~8.1.2",
+    "@angular/core": "~8.1.2",
+    "@angular/fire": "^6.0.0-rc.1",
+    "@angular/forms": "~8.1.2",
+    "@angular/platform-browser": "~8.1.2",
+    "@angular/platform-browser-dynamic": "~8.1.2",
+    "@angular/router": "~8.1.2",
+    "@capacitor/android": "^1.5.0",
+    "@capacitor/core": "1.5.0",
+    "@ionic-native/camera": "^5.23.0",
+    "@ionic-native/core": "^5.21.6",
+    "@ionic-native/date-picker": "^5.23.0",
+    "@ionic-native/facebook": "^5.22.0",
+    "@ionic-native/firebase-authentication": "^5.23.0",
+    "@ionic-native/google-plus": "^5.23.0",
+    "@ionic-native/ionic-webview": "^5.22.0-beta-1",
+    "@ionic-native/local-notifications": "^5.23.0",
+    "@ionic-native/splash-screen": "^5.21.6",
+    "@ionic-native/status-bar": "^5.21.6",
+    "@ionic/angular": "^5.0.7",
+    "@rdlabo/capacitor-facebook-login": "^1.5.0",
+    "capacitor-firebase-auth": "^0.3.0",
+    "cordova-android": "^8.1.0",
+    "cordova-plugin-badge": "^0.8.8",
+    "cordova-plugin-camera": "^4.1.0",
+    "cordova-plugin-datepicker": "^0.9.3",
+    "cordova-plugin-facebook4": "^6.4.0",
+    "cordova-plugin-googleplus": "^8.4.0",
+    "cordova-plugin-ionic-webview": "^4.1.3",
+    "cordova-plugin-local-notification": "^0.9.0-beta.2",
+    "cordova-support-android-plugin": "^1.0.1",
+    "cordova-universal-links-plugin-fix": "^1.2.1",
+    "core-js": "^2.5.4",
+    "firebase": "^7.8.2",
+    "ionic-angular": "^3.9.9",
+    "rxjs": "~6.5.1",
+    "tslib": "^1.11.0",
+    "zone.js": "~0.9.1"
+  },
+  "devDependencies": {
+    "@angular-devkit/architect": "~0.801.2",
+    "@angular-devkit/build-angular": "^0.803.24",
+    "@angular-devkit/core": "~8.1.2",
+    "@angular-devkit/schematics": "~8.1.2",
+    "@angular/cli": "~8.1.2",
+    "@angular/compiler": "~8.1.2",
+    "@angular/compiler-cli": "~8.1.2",
+    "@angular/language-service": "~8.1.2",
+    "@capacitor/cli": "1.5.0",
+    "@ionic/angular-toolkit": "^2.1.1",
+    "@types/jasmine": "~3.3.8",
+    "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
+    "codelyzer": "^5.0.0",
+    "cordova-plugin-device": "2.0.2",
+    "cordova-plugin-ionic-keyboard": "^2.0.5",
+    "cordova-plugin-splashscreen": "5.0.2",
+    "cordova-plugin-statusbar": "2.4.2",
+    "cordova-plugin-whitelist": "1.3.3",
+    "jasmine-core": "~3.4.0",
+    "jasmine-spec-reporter": "~4.2.1",
+    "karma": "~4.1.0",
+    "karma-chrome-launcher": "~2.2.0",
+    "karma-coverage-istanbul-reporter": "~2.0.1",
+    "karma-jasmine": "~2.0.1",
+    "karma-jasmine-html-reporter": "^1.5.2",
+    "protractor": "^5.4.3",
+    "ts-node": "~7.0.0",
+    "tslint": "~5.15.0",
+    "typescript": "~3.4.3",
+    "firebase-tools": "^7.12.0",
+    "fuzzy": "^0.1.3",
+    "inquirer": "^6.2.2",
+    "inquirer-autocomplete-prompt": "^1.0.1"
+  },
+  "description": "An Ionic project",
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-ionic-keyboard": {},
+      "cordova-plugin-facebook4": {
+        "APP_ID": "1334257656777781",
+        "APP_NAME": "todos-list"
+      },
+      "cordova-plugin-camera": {
+        "ANDROID_SUPPORT_V4_VERSION": "27.+"
+      },
+      "cordova-plugin-googleplus": {
+        "REVERSED_CLIENT_ID": "com.googleusercontent.apps.585159226037-kvgnp8q6dno80mhsrdgdbv3avmckctqd",
+        "PLAY_SERVICES_VERSION": "15.0.1"
+      },
+      "cordova-plugin-local-notification": {},
+      "cordova-plugin-datepicker": {},
+      "cordova-plugin-ionic-webview": {
+        "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
+      }
+    },
+    "platforms": [
+      "android"
+    ]
+  }
+}

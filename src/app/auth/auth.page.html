@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon slot="start" name="lock-closed"></ion-icon>
+    </ion-buttons>
+    <ion-title>Authentication</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="logInUserForm.form.valid && eLogin()" #logInUserForm="ngForm">
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input 
+      clearInput 
+      required 
+      email 
+      ngModel
+      name="email"
+      type="text" 
+      [(ngModel)]="email">
+    </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input 
+      clearInput 
+      required 
+      ngModel
+      minlength="6" 
+      name="password" 
+      type="password"
+      [(ngModel)]="password">
+      </ion-input>
+    </ion-item>
+    <ion-button expand="block" color="primary" type="submit" [disabled]="!logInUserForm.form.valid">
+      <ion-icon slot="end" name="mail"></ion-icon>
+      Sign In
+    </ion-button>
+  </form>
+  <ion-item class="ion-text-center">
+    <ion-label routerLink="recovery" color="secondary">
+      <u>Lost Password ?</u>
+    </ion-label>
+    <ion-text>
+      Or
+    </ion-text>
+    <ion-label routerLink="register" color="secondary">
+      <b>Create an Account</b>
+    </ion-label>
+  </ion-item>
+  <ion-button expand="block" color="primary" (click)="gLogin()">
+    <ion-icon slot="end" name="logo-google"></ion-icon>
+    Google
+  </ion-button>
+  <ion-button expand="block" color="primary" (click)="fLogin()">
+    <ion-icon slot="end" name="logo-facebook"></ion-icon>
+    Facebook
+  </ion-button>
+
+</ion-content>

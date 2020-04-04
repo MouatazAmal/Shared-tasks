@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/auth"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="primary">Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <form (ngSubmit)="addUserForm.form.valid && addUser()" #addUserForm="ngForm">
+    <ion-list lines="full" class="ion-no-margin ion-no-padding">
+      <ion-item>
+        <ion-label position="floating">
+          Full Name <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input 
+        clearInput 
+        required 
+        ngModel
+        type="text" 
+        name="fullName" 
+        [(ngModel)]="user.fullName">
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">
+          Email <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input 
+        clearInput 
+        required 
+        email 
+        ngModel
+        type="text" 
+        name="email" 
+        [(ngModel)]="user.email">
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">
+          Password <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input 
+        clearInput 
+        required 
+        ngModel
+        minlength="6" 
+        type="password" 
+        name="password" 
+        [(ngModel)]="password">
+        </ion-input>
+      </ion-item>
+    </ion-list>
+      <ion-button expand="block" color="primary" type="submit" [disabled]="!addUserForm.form.valid">Register</ion-button>
+    <ion-button expand="block" color="warning" (click)="addUserForm.form.reset()">Clear</ion-button>
+  </form>
+</ion-content>

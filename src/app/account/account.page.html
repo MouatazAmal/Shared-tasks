@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/todoslists"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="primary">Account</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="4"></ion-col>
+      <ion-col size="4">
+        <div class="ion-text-center">
+          <img [src]="this.user.pictureUrl" />
+        </div>
+      </ion-col>
+      <ion-col size="4"></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <ion-button (click)="changePicture()" fill="clear">
+          <ion-icon slot="start" name="image"></ion-icon>
+          Change Profile Picture
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <ion-text color="primary">
+          <h1>{{ this.user.fullName | titlecase}}</h1>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <ion-text color="secondary">
+          <h2>{{ this.user.email }}</h2>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

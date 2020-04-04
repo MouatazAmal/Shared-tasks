@@ -1,0 +1,113 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button fill="clear" slot="end" color="light" (click)="onClose()">
+      <ion-icon slot="start" name="close"></ion-icon>
+    </ion-button>
+    <ion-title>Share Todoslist</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title color="primary">{{treatedTodoList.name}}</ion-card-title>
+      <ion-card-subtitle *ngIf="!sharingAutorisation" color="danger">Read-Only</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <form (ngSubmit)="shareForm.form.valid && shareWith()" #shareForm="ngForm">
+        <ion-list>
+          <ion-item>
+            <ion-label position="floating">User Email</ion-label>
+            <ion-input 
+            clearInput 
+            required 
+            email 
+            ngModel
+            name="userEmail" 
+            [(ngModel)]="userEmail" 
+            [disabled]="!sharingAutorisation">
+          </ion-input>
+          </ion-item>
+          <ion-radio-group 
+          name="userRole" 
+          required 
+          ngModel
+          [(ngModel)]="userRole" 
+          [disabled]="!sharingAutorisation">
+            <ion-item lines="none">
+              <ion-label>Reader</ion-label>
+              <ion-radio value="reader" [disabled]="!sharingAutorisation"></ion-radio>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-label>Writer</ion-label>
+              <ion-radio value="writer" [disabled]="!sharingAutorisation"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+          <ion-button type="submit" expand="block" [disabled]="!shareForm.form.valid || !sharingAutorisation">
+            Add user
+          </ion-button>
+        </ion-list>
+      </form>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col>
+        <ion-text color="primary">Owner :</ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-text color="secondary">
+          <i>{{treatedTodoList.owner}}</i>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-text color="primary">Writers :</ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-list class="ion-no-padding">
+            <ion-item lines="none" *ngFor="let email of treatedTodoList.allowedToWrite">
+              <ion-buttons slot="end">
+                <ion-button [disabled]="!sharingAutorisation" (click)="onDelete(email,'writer')">
+                  <ion-icon slot="icon-only" name="trash"></ion-icon>
+                </ion-button>
+              </ion-buttons>
+              <ion-label color="tertiary">
+                <h2>{{ email }}</h2>
+              </ion-label>
+            </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-text color="primary">Readers :</ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-list>
+            <ion-item lines="none" *ngFor="let email of treatedTodoList.allowedToRead">
+              <ion-buttons slot="end">
+                <ion-button [disabled]="!sharingAutorisation" (click)="onDelete(email,'reader')">
+                  <ion-icon slot="icon-only" name="trash"></ion-icon>
+                </ion-button>
+              </ion-buttons>
+              <ion-label color="tertiary">
+                <h2>{{ email }}</h2>
+              </ion-label>
+            </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

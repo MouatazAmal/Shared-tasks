@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/todoslists"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Show TodosList</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid *ngIf="!isTodoLoaded">
+    <ion-row>
+      <ion-col size="6" offset="5">
+        <ion-spinner></ion-spinner>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="ion-text-center" color="primary">"{{todosList.name}}"</ion-card-title>
+      <ion-card-subtitle *ngIf="!isWriteAutorisation && !isDelAutorisation" color="danger">Read-Only</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content size="large">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-text>
+              {{todosList.description}}
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="ion-text-center">
+            <ion-avatar>
+              <img [src]="todoslistOwner.pictureUrl" />
+            </ion-avatar>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="ion-text-center">
+            <ion-text color="primary">
+              <b>{{todoslistOwner.fullName}}</b>
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="ion-text-center">
+            <ion-button [routerLink]="['/', 'todoslists', 'edit', todosList.id]" [disabled]="!isWriteAutorisation && !isDelAutorisation">
+              <ion-icon slot="icon-only" name="create"></ion-icon>
+            </ion-button>
+            <ion-button (click)="onDelete()" color="danger" [disabled]="!isDelAutorisation">
+              <ion-icon slot="icon-only" name="trash"></ion-icon>
+            </ion-button>
+            <ion-button (click)="onShare()" color="success">
+              <ion-icon slot="icon-only" name="share"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list>
+    <ion-item lines="none">
+      <ion-buttons slot="end">
+        <ion-button routerLink="./additem" [disabled]="!isWriteAutorisation && !isDelAutorisation">
+          <ion-icon slot="icon-only" name="add"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-label color="primary">Todos :</ion-label>
+    </ion-item>
+
+    <ion-item-sliding *ngFor="let item of item$ | async ">
+      <ion-item button [routerLink]="['./', item.id]" lines="none">
+        <ion-icon slot="start" name="alarm" *ngIf="!item.isDone"></ion-icon>
+        <ion-icon slot="start" name="checkmark" *ngIf="item.isDone"></ion-icon>
+        <ion-label color="tertiary">
+          <h2>{{ item.title | titlecase }}</h2>
+        </ion-label>
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option color="primary" [routerLink]="['./', 'edititem', item.id]" [disabled]="!isWriteAutorisation && !isDelAutorisation">
+          <ion-icon slot="top" name="create"></ion-icon>
+        </ion-item-option>
+        <ion-item-option color="danger" (click)="onDeleteItem(item)" [disabled]="!isWriteAutorisation && !isDelAutorisation">
+          <ion-icon slot="top" name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+</ion-content>

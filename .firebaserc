@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "m2pgi-ionic-cours-3"
+  },
+  "targets": {
+    "recipebook-5534c": {
+      "hosting": {
+        "app": [
+          "recipebook-5534c"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/todoslists"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add TodosList</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="addListForm.form.valid && addList()" #addListForm="ngForm">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">
+          Name <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input 
+        clearInput 
+        required 
+        ngModel
+        type="text" 
+        name="name" 
+        [(ngModel)]="todosList.name">
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">
+          Description <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-textarea 
+        clearInput 
+        required
+        ngModel
+        rows="6" 
+        cols="20" 
+        placeholder="Enter any notes here..." 
+        name="description" 
+        [(ngModel)]="todosList.description">
+      </ion-textarea>
+      </ion-item>
+    </ion-list>
+    <ion-button expand="block" type="submit" [disabled]="!addListForm.form.valid">
+      Add TodosList
+    </ion-button>
+
+  </form>
+</ion-content>

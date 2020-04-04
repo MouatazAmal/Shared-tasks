@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/todoslists"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Edit Item</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="editItemForm.form.valid && editItem()" #editItemForm="ngForm">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">
+          Title <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input 
+        clearInput 
+        required 
+        ngModel
+        type="text" 
+        name="title" 
+        [(ngModel)]="item.title">
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">
+          Detail <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-textarea 
+        clearInput 
+        required
+        ngModel
+        rows="6" 
+        cols="20" 
+        placeholder="Enter any notes here..."  
+        name="detail" 
+        [(ngModel)]="item.detail">
+      </ion-textarea>
+      </ion-item>
+      <ion-item>
+        <label>isDone :</label>
+        <ion-toggle 
+        ngModel
+        name="isDone" 
+        color="primary" 
+        [(ngModel)]="item.isDone">
+      </ion-toggle>
+      </ion-item>
+      <ion-button expand="block" type="submit" [disabled]="!editItemForm.form.valid">
+        Edit Item
+      </ion-button>
+    </ion-list>
+  </form>
+</ion-content>
