@@ -53,11 +53,3 @@ L’application comporte également une partie où l’utilisateur peut accéder
 L’utilisateur peut changer sa photo de profile en prenant une photo depuis la caméra de son téléphone, et puis la stocker dans le firebase storage. 
 
 ## mode opératoire
-
-## Tutoriel Video
-- 1- Overview de l'application :  https://youtu.be/z6X_dB6RmdQ
-- 2- Authentification :  https://youtu.be/IfCizW8lndk
-- 3- Service de partage des todolist's : https://youtu.be/WkIITAnhdvU
-- 4- Utilisation de la caméra du téléphone  : https://youtu.be/7kajeInoxIo
-- 5- Fonction de rappel : https://youtu.be/OVG0ndncF-8
-- 6- Overview Firebase & Gitlab : https://youtu.be/Zpo_ohG8WnE
